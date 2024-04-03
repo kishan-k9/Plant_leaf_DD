@@ -1,0 +1,357 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+{% block body %}
+<style>
+
+body {
+    /* display: flex; */
+    align-items: flex-start; /* Adjust alignment */
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: #010615;
+}
+
+.card {
+    width: calc(25% - 60px); /* Adjust width to fit four cards horizontally with margins */
+    max-width: 300px; /* Limit card width */
+    height: 300px;
+    display: inline-block; /* Change display to inline-block */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 15px; /* Adjust margin to create space between cards */
+    transition: 0.5s;
+    background: #060c21;
+}
+
+.card:hover {
+    height: 330px;
+}
+.img-container{
+  width: 450;
+    height:600;
+}
+.card .img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card .img-container img {
+    max-width: 100%;
+    opacity: 0.2;
+    transition: 0.5s;
+}
+
+.card:hover .img-container img {
+    opacity: 1;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+}
+
+.card:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -2;
+    filter: blur(40px);
+}
+
+.card:before,
+.card:after {
+    background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+}
+
+.card:nth-child(1):before,
+.card:nth-child(1):after {
+    background: linear-gradient(235deg, #ff005e, #010615, #fbff00);
+}
+
+.card:nth-child(2):before,
+.card:nth-child(2):after {
+    background: linear-gradient(235deg, #772aff, #010615, #2196f3);
+}
+
+.card .content {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.card:hover .content {
+    opacity: 1;
+}
+
+.card .content h2 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.6em;
+    letter-spacing: 1px;
+}
+.card .content h2 span {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 200;
+    line-height: 10px;
+    letter-spacing: 2px;
+}
+
+
+  @media only screen and (max-width: 830px) {
+    .laptop{
+      display: none;
+    }
+  }
+  @media (min-width:830px) and (max-width: 1536px){
+    .mobile{
+      display: none;
+    }
+    
+  }
+</style>
+
+<div >
+  <use-animate data-animate="zoom-fade" class="media-wrapper" animate="">
+    <div class="col-lg-8">
+      <img src="https://img.freepik.com/premium-vector/leaves-bakground-design-vector-ecology_548646-3184.jpg?w=826" width="1350" height="220" alt="Banner Image">
+    </div>
+  </use-animate>
+</div>
+
+<div class='mobile p-5'>
+  <div class="row mb-5 text-center text-white">
+    
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color:red;"><b>Note✍🏻</b></h1>
+      <p class="lead" style="font-weight: 500;color: black;">Please🙏 Open This Site On Laptop/PC 💻 Screen Only</p>
+      <p class="lead" style="font-weight: 500;color: black;">Thank You 🤝</p>    
+    </div>
+</div>
+</div>
+
+
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 5%;font-weight: 400;color: rgb(255, 255, 255);"><b>🍀Plant Disease
+                Detection🍀 </b></h1>
+        <p class="lead" style="font-weight: 500;color: rgb(255, 255, 255);">This AI Engine Will Help To Detect Disease From Following Fruits And Veggies</p>
+    </div>
+</div>
+
+<center class="laptop">
+    <a href="/index">
+    <button class = "bttn-pill bttn-lg btn-success"><b style="color: black;">AI Engine</b></button>
+</a>
+</center>
+
+<div class="row p-5 laptop">
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-photo/red-apple-with-water-drops-it_81048-37349.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                    Apple
+                    <br />
+                    <!-- <span> Web Developer </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-photo/blue-grapes-water-splash_846967-88.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                    Blueberry
+                    <br />
+                    <!-- <span> Product Manager </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-photo/two-cherries-with-leaf-top-them_899870-4403.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                  Cherry
+                    <br />
+                    <!-- <span> Data Analyst </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-vector/sweet-organic-corncob-3d-illustration-white-background_317810-2331.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                    Corn
+                    <br />
+                    <!-- <span> Data Analyst </span> -->
+                </h2>
+            </div>
+        </div>
+</div>
+<div class="row p-5 laptop">
+
+  <div class="card">
+    <div class="img-container">
+                <img src="https://img.freepik.com/premium-photo/high-angle-view-grapes-against-white-background_1048944-11508915.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                    Grapes
+                    <br />
+                    <!-- <span> Web Developer </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/free-photo/orange-white-white_144627-16571.jpg?t=st=1709906410~exp=1709910010~hmac=b6e5b716745793475badd6f1f827619895cf4a412870af0ee097cc96d8fe3767&w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                    Orange
+                    <br />
+                    <!-- <span> Product Manager </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-photo/red-peaches-with-leaves_184700-13.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                  Peach
+                    <br />
+                    <!-- <span> Data Analyst </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://brownthumbmama.com/wp-content/uploads/2010/09/peppers-hero-OPT.jpg" />
+            </div>
+            <div class="content">
+                <h2>
+                  Pepper
+                    <br />
+                    <!-- <span> Data Analyst </span> -->
+                </h2>
+            </div>
+        </div>
+</div>
+<div class="row p-5 laptop">
+
+  <div class="card">
+    <div class="img-container">
+                <img src="https://img.freepik.com/premium-vector/realistic-detailed-3d-whole-potatoes-slices-vector_287964-2045.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                  Potato
+                    <br />
+                    <!-- <span> Web Developer </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-vector/ripe-raspberry-fruits-isolated-white-background-vector-green-leaves-berries_992252-61.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                  Raspberries
+                    <br />
+                    <!-- <span> Product Manager </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-vector/soy-bean-elements-organic-natural-food-3d-illustration_317442-769.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                    Soyabean
+                    <br />
+                    <!-- <span> Data Analyst </span> -->
+                </h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-photo/background-food-fruits-vegetables-collection-fruit-vegetable-square-healthy-eating-diet-apples-oranges-tomatoes_770123-2020.jpg?w=740" />
+            </div>
+            <div class="content">
+                <h2>
+                    Squash
+                    <br />
+                    <!-- <span> Data Analyst </span> -->
+                </h2>
+            </div>
+        </div>
+</div>
+<center>
+  <!-- <div class="row p-5 laptop"> -->
+<div class="card">
+  <div class="img-container">
+      <img src="https://img.freepik.com/free-photo/strawberry-berry-levitating-white-background_485709-57.jpg?t=st=1709907361~exp=1709910961~hmac=875f385478a0e6d66859aa93abe8b11e5c06dd35ce37b49de1eb54b2e735095a&w=740" />
+  </div>
+  <div class="content">
+      <h2>
+          Strawberry
+          <br />
+          <!-- <span> Data Analyst </span> -->
+      </h2>
+  </div>
+</div>
+<div class="card">
+  <div class="img-container">
+      <img src="https://img.freepik.com/free-vector/fresh-tomato_1053-566.jpg?t=st=1709906649~exp=1709910249~hmac=088665acf792cf17aaca425604e6237104d7a4283bc3efae34d0dfd43f3124a5&w=740" />
+  </div>
+  <div class="content">
+      <h2>
+        Tomato
+          <br />
+          <!-- <span> Data Analyst </span> -->
+      </h2>
+  </div>
+</div>
+</center>
+    
+{% endblock body %}
