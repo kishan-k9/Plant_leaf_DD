@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import torch.nn as nn
 from PIL import Image
+import uvicorn
 import re
 import io
 
@@ -104,5 +105,4 @@ async def predict(file: UploadFile = File(...)):
                                  "prediction": pred_csv})
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
